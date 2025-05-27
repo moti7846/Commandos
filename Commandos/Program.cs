@@ -10,19 +10,14 @@ namespace Commandos
     {
         static void Main(string[] args)
         {
-            //Commando a = new Commando("moti", "11224");
-            //a.Walk();
-            //a.Hide();
-            //a.Attack();
-
-            Weapon b = new Weapon("moti", "sos", 5);
-            b.Shoot();
-            b.Shoot();
-            b.Shoot();
-            b.Shoot();
-            b.Shoot();
-            b.Shoot();
-            b.Shoot();
+            Commando c = new Commando("comm", "1");
+            AirCommando a = new AirCommando("air", "1");
+            SeaCommando s = new SeaCommando("sea", "1");
+            Commando[] cas = { c, a, s };
+            foreach(Commando it in cas)
+            {
+                it.Attack();
+            }
         }
     }
 }

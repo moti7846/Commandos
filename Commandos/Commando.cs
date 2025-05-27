@@ -8,15 +8,15 @@ namespace Commandos
 {
     internal class Commando
     {
-        public string Name;
-        public string NameCode;
+        private string Name;
+        public string CodeName { get; set; }
         public string[] Tools = { "Hammer", "Chisel", "Rope", "Bag", "Water bottle" };
         public string Status;
 
         public Commando(string name,string namecode)
         {
             Name = name;
-            NameCode = namecode;
+            CodeName = namecode;
         }
         public void Walk()
         {
@@ -30,11 +30,23 @@ namespace Commandos
             Console.WriteLine("The soldier is hiding.");
             //Console.WriteLine($"The soldier is {Status}.");
         }
-        public void Attack()
+        public virtual void Attack()
         {
             Status = "attack";
-            Console.WriteLine($"****_{NameCode}_****");
+            Console.WriteLine($"****_{CodeName}_****");
             Console.WriteLine("The commando attacks.");
+        }
+        public string SayName(string commanderRank)
+        {
+            if(commanderRank.Equals("general"))
+            {
+                return Name;
+            }
+            else if(commanderRank.Equals("clolnel"))
+            {
+                return CodeName;
+            }
+            return "The information is classified and you do not have access.";
         }
 
     }
